@@ -11,10 +11,13 @@ def index(request):
     return render(request, 'rango/index.html', context=context_dict)
 
 def about(request):
-    string = "Rango says here is the about page."
-    link = "<a href='/rango/'>Index</a>"
-    response = string + link
-    return HttpResponse(response)
+    # Construct a dictionary to pass to the template engine as its context.
+    # Note the key boldmessage matches to {{ boldmessage }} in the template!
+    context_dict = {}
+    # Return a rendered response to send to the client.
+    # We make use of the shortcut function to make our lives easier.
+    # Note that the first parameter is the template we wish to use.
+    return render(request, 'rango/index.html', context=context_dict)
 
 
 
