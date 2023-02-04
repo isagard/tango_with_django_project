@@ -10,13 +10,15 @@ def index(request):
     # Retrieve the top 5 only -- or all if less than 5.
     # Place the list in our context_dict dictionary (with our boldmessage!)
     # that will be passed to the template engine.
-    category_list = Category.objects.order_by('-likes')[:5]
+    category_list = Category.objects.order_by('-likes')[:5]
+    pages_by_views_list = Pages.objects.order_by('views')
 
     context_dict = {}
     # Construct a dictionary to pass to the template engine as its context.
     # Note the key boldmessage matches to {{ boldmessage }} in the template!
     context_dict = {'boldmessage': 'Crunchy, creamy, cookie, candy, cupcake!'}
     context_dict['categories'] = category_list
+    context_dict['views'] = pages_by_views_list
     
     # Return a rendered response to send to the client.
     # We make use of the shortcut function to make our lives easier.
