@@ -87,9 +87,9 @@ def add_category(request):
             # just print them to the terminal.
             print(form.errors)
 
-# Will handle the bad form, new form, or no form supplied cases.
-# Render the form with error messages (if any).
-return render(request, 'rango/add_category.html', {'form': form})
+    # Will handle the bad form, new form, or no form supplied cases.
+    # Render the form with error messages (if any).
+    return render(request, 'rango/add_category.html', {'form': form})
 
 
 
